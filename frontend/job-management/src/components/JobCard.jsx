@@ -10,7 +10,7 @@ export const JobCard=()=> {
             <span className="text-white text-xl font-bold">a</span>
           </div>
         </div>
-        <div className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">
+        <div className="bg-[#B0D9FF]  text-xs font-medium px-2 py-1 rounded-full">
           24h Ago
         </div>
       </div>
@@ -37,7 +37,7 @@ export const JobCard=()=> {
         <li>Filter destinations based on interests and travel style, and create personalized</li>
       </ul>
       
-      <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 rounded-md">
+      <button className="w-full bg-[#00AAFF] text-white font-medium py-2 rounded-md">
         Apply Now
       </button>
     </div>
