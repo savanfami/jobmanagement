@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import SearchFilter from "../components/SearchBar";
 import Navbar from "../components/Navbar";
-import JobCard from "../components/JobCard";
+import {JobCard} from "../components/JobCard";
 import ModalWrapper from "../components/ModalWrapper";
-import CreateJobPost from "../components/CreateJobPost";
+import { CreateJobPost } from "../components/CreateJobPost";
 
 const Layout = () => {
     const [showModal, setShowModal] = useState(false);

@@ -3,7 +3,7 @@ import { FiSearch } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
 import { FaUser } from "react-icons/fa";
 
-function SearchFilter() {
+const  SearchFilter=()=> {
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
   const [jobType, setJobType] = useState("");

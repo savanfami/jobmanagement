@@ -1,7 +1,7 @@
 import { User, Building, DollarSign } from 'lucide-react';
 import React from 'react';
 
-export default function JobCard() {
+export const JobCard=()=> {
   return (
     <div className="max-w-xs mt-5 bg-white   rounded-lg shadow-sm p-4">
       <div className="flex justify-between items-start mb-3">
