@@ -33,9 +33,9 @@ const SearchFilter = () => {
 
   return (
     <>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 p-4 text-[#686868] shadow-sm rounded-md">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 p-4  shadow-sm rounded-md">
       {/* Job Title */}
-      <div className="flex items-center gap-2 border-r pr-4 ml-7">
+      <div className="flex items-center gap-2 border-r-3 border-[#EAEAEA] pr-4 ml-7">
         <FiSearch />
         <input
           type="text"
@@ -46,7 +46,7 @@ const SearchFilter = () => {
         />
       </div>
 
-      <div className="flex items-center gap-2 border-r pr-4">
+      <div className="flex items-center gap-2 border-r-3 border-[#EAEAEA] pr-4">
         <GoLocation />
         <input
           type="text"
@@ -57,7 +57,7 @@ const SearchFilter = () => {
         />
       </div>
 
-      <div className="flex items-center gap-2 border-r pr-4">
+      <div className="flex items-center gap-2 border-r-3 border-[#EAEAEA] pr-4">
         <FaUser />
         <select
           value={jobType}
