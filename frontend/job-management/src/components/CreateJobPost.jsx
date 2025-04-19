@@ -1,0 +1,172 @@
+import { ChevronDown, Calendar, ChevronRight } from "lucide-react";
+import { FiChevronUp } from "react-icons/fi";
+import { useState } from "react";
+import React from "react";
+
+export default function CreateJobPost() {
+  const [jobType, setJobType] = useState("Full-Time");
+  const [showJobTypeDropdown, setShowJobTypeDropdown] = useState(false);
+
+  const jobTypes = ["Full-Time", "Part-Time", "Contract", "Internship"];
+
+  return (
+    <div className="max-w-2xl mx-auto  bg-white rounded-lg border border-blue-200 shadow-sm p-6">
+      <h1 className="text-center text-xl font-medium mb-6">
+        Create Job Opening
+      </h1>
+
+      <div className="grid grid-cols-2 gap-6 mb-4">
+        <div>
+          <label htmlFor="jobTitle" className="block text-gray-600 mb-2">
+            Job Title
+          </label>
+          <input
+            type="text"
+            id="jobTitle"
+            className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-1"
+            placeholder="enter job title"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="companyName" className="block text-gray-600 mb-2">
+            Company Name
+          </label>
+          <input
+            type="text"
+            id="companyName"
+            className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-1"
+            placeholder="enter company name"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6 mb-4">
+        <div>
+          <label htmlFor="location" className="block text-gray-600 mb-2">
+            Location
+          </label>
+          <div className="relative">
+            <input
+              type="text"
+              id="location"
+              className="w-full border border-gray-300 rounded-md p-2 pr-10 focus:outline-none focus:ring-1"
+              placeholder="Choose Preferred Location"
+            />
+            <ChevronDown
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              size={16}
+            />
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="jobType" className="block text-gray-600 mb-2">
+            Job Type
+          </label>
+          <div className="relative">
+            <div
+              className="w-full border border-gray-300 rounded-md p-2 pr-10 focus:outline-none focus:ring-1 cursor-pointer flex justify-between items-center"
+              onClick={() => setShowJobTypeDropdown(!showJobTypeDropdown)}
+            >
+              <span>{jobType}</span>
+              <ChevronDown className="text-gray-400" size={16} />
+            </div>
+
+            {showJobTypeDropdown && (
+              <div className="absolute top-full left-0 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-md z-10">
+                {jobTypes.map((type, index) => (
+                  <div
+                    key={index}
+                    className="p-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => {
+                      setJobType(type);
+                      setShowJobTypeDropdown(false);
+                    }}
+                  >
+                    {type}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+  
+
+
+
+    <div className="grid grid-cols-2 gap-6 mb-4">
+
+      <div>
+        <label className="block text-gray-600 mb-2 font-medium">
+          Salary Range
+        </label>
+        <div className="flex gap-4">
+  
+          <div className="flex items-center border border-gray-300 rounded-md px-3 py-2 w-full">
+            <FiChevronUp className="text-gray-400 mr-2" />
+            <span className="text-gray-400 mr-1"></span>
+            <input
+              type="number"
+              className="w-full text-gray-700 placeholder-gray-400 bg-transparent outline-none"
+              placeholder=""
+            />
+          </div>
+
+
+          <div className="flex items-center border border-gray-300 rounded-md px-3 py-2 w-full">
+            <FiChevronUp className="text-gray-400 mr-2" />
+            <span className="text-gray-400 mr-1"></span>
+            <input
+              type="number"
+              className="w-full text-gray-700 placeholder-gray-400 bg-transparent outline-none"
+              placeholder=""
+            />
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <label htmlFor="deadline" className="block text-gray-600 mb-2 font-medium">
+          Application Deadline
+        </label>
+        <div className="relative">
+          <input
+            type="date"
+            id="deadline"
+            className="w-full border border-gray-300 rounded-md p-2 pr-10 focus:outline-none focus:ring-1"
+          />
+        
+        </div>
+      </div>
+    </div>
+
+
+
+      <div className="mb-6">
+        <label htmlFor="jobDescription" className="block text-gray-600 mb-2">
+          Job Description
+        </label>
+        <textarea
+          id="jobDescription"
+          className="w-full border border-gray-300 rounded-md p-2 h-24 focus:outline-none focus:ring-1"
+          placeholder="Please share a description to let the candidate know more about the job role"
+        ></textarea>
+      </div>
+
+      <div className="flex justify-between">
+        <button className="border border-gray-300 rounded-md py-2 px-4 flex items-center gap-2 text-gray-600 hover:bg-gray-50">
+          Save Draft
+          <ChevronDown size={16} />
+        </button>
+
+        <button className="bg-blue-500 text-white rounded-md py-2 px-8 flex items-center gap-2 hover:bg-blue-600">
+          Publish
+          <ChevronRight size={16} />
+        </button>
+      </div>
+    </div>
+  );
+}
