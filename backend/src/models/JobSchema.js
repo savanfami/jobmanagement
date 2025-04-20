@@ -17,7 +17,7 @@ const jobSchema = new Schema(
       },
       jobType: {
         type: String,
-        enum: ['Full-time', 'Part-time', 'Contract', 'Internship'],
+        enum: ['Full-Time', 'Part-Time', 'Contract', 'Internship'],
         required: true,
       },
       minSalary: {
@@ -32,7 +32,7 @@ const jobSchema = new Schema(
         type: String,
         required: true,
       },
-      applicationDeadline: {
+      deadline: {
         type: Date,
         required: true,
       },

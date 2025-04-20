@@ -1,7 +1,11 @@
-import { ChevronDown, Calendar, ChevronRight } from "lucide-react";
+import { ChevronDown, Calendar, ChevronRight, Import } from "lucide-react";
 import { FiChevronUp } from "react-icons/fi";
 import { useState } from "react";
 import React from "react";
+import toast, { Toaster } from 'react-hot-toast';
+
+import { apiInstance } from "../common/axiosInstance";
+
 
 export const CreateJobPost = () => {
   const [jobType, setJobType] = useState("Select Job Type");
@@ -71,8 +75,8 @@ export const CreateJobPost = () => {
 
     try {
       console.log(payload, "payload dataaaa");
-      // const response = await axios.post("/api/jobs", payload);
-      console.log("Job created:", response.data);
+      const {data} = await apiInstance.post("/api/jobs", payload);
+      console.log(data,'rsponse ')
       alert("Job created successfully!");
     } catch (error) {
       console.error("Submission error:", error);
@@ -83,6 +87,7 @@ export const CreateJobPost = () => {
   const jobTypes = ["Full-Time", "Part-Time", "Contract", "Internship"];
 
   return (
+    <>
     <div className="max-w-2xl mx-auto  bg-white rounded-lg border border-blue-200 shadow-sm p-6">
       <h1 className="text-center text-xl font-medium mb-6">
         Create Job Opening
@@ -287,5 +292,6 @@ export const CreateJobPost = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
