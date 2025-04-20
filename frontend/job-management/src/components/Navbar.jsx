@@ -7,7 +7,7 @@ const Navbar = ({onCreateClick}) => {
     <nav  className="w-[890px] h-[80px] mt-[21px] ml-[275px]  rounded-[122px] bg-white shadow-md flex items-center px-6">
       <div className="flex items-center  w-full">
         <img src={Logo} alt="Logo" className="h-10 w-auto" />
-        <ul className="flex ml-[30px] space-x-15 text-black font-medium  px-6 py-2 ">
+        <ul className="flex ml-[30px] text-[#303030] space-x-15  font-medium  px-6 py-2 ">
           <li className="cursor-pointer">Home</li>
           <li className="cursor-pointer">Find Jobs</li>
           <li className="cursor-pointer">Find Talents</li>

@@ -22,21 +22,21 @@ export const JobCard=({jobs})=> {
       <h2 className="text-lg font-bold mb-2">{jobTitle}</h2>
       
       <div className="flex gap-4 mb-3 text-gray-600 text-sm">
-        <div className="flex items-center">
-          <User size={16} className="mr-1" />
+        <div className="flex text-[#5A5A5A] items-center">
+          <User size={16}  className="mr-1" />
           <span>{location}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex text-[#5A5A5A] items-center">
           <Building size={16} className="mr-1" />
           <span>{jobType}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex text-[#5A5A5A] items-center">
           <DollarSign size={16} className="mr-1" />
           <span>{maxSalary/100000}LPA</span>
         </div>
       </div>
       
-      <ul className="list-disc pl-5 text-sm text-gray-600 mb-4">
+      <ul className="list-disc pl-5 text-sm text-[#555555] mb-4">
         <li>{jobDescription}</li>
       </ul>
       
