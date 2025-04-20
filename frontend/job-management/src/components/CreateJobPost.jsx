@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import { apiInstance } from "../common/axiosInstance";
 
-export const CreateJobPost = ({ closeModal }) => {
+export const CreateJobPost = ({ closeModal, setPost }) => {
   const [jobType, setJobType] = useState("Select Job Type");
   const [loading, setLoading] = useState(false);
   const [showJobTypeDropdown, setShowJobTypeDropdown] = useState(false);
@@ -39,7 +39,15 @@ export const CreateJobPost = ({ closeModal }) => {
     }
     if (!formData.jobDescription.trim())
       Error.jobDescription = "job description is required";
-    if (!formData.deadline) Error.deadline = "Application deadline is required";
+    if (!formData.deadline) {
+      Error.deadline = "Application deadline is required";
+    } else {
+      const currentDate = new Date();
+      const deadlineDate = new Date(formData.deadline);
+      if (deadlineDate < currentDate) {
+        Error.deadline = "Application deadline cannot be in the past";
+      }
+    }
 
     setError(Error);
     return Object.keys(Error).length === 0;
@@ -82,6 +90,7 @@ export const CreateJobPost = ({ closeModal }) => {
         toast.success(data?.message);
         setTimeout(() => {
           closeModal();
+          setPost();
         }, 2000);
       }
     } catch (error) {

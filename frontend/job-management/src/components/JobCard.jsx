@@ -2,6 +2,8 @@ import { User, Building, DollarSign } from 'lucide-react';
 import React from 'react';
 import logo from '../assets/images/amazon.png'
 
+import { getTimeAgo } from '../utils/timeConveter';
+
 export const JobCard=({jobs})=> {
   const {jobTitle,companyName,deadline,minSalary,maxSalary,jobDescription,location,createdAt,jobType}=jobs
   return (
@@ -12,8 +14,8 @@ export const JobCard=({jobs})=> {
            <img src={logo} alt="" />
           </div>
         </div>
-        <div className="bg-[#B0D9FF]  text-xs font-medium px-2 py-1 rounded-full">
-          {createdAt}
+        <div className="bg-[#B0D9FF]  text-xs font-medium px-2 py-1 rounded-lg ">
+          {getTimeAgo(createdAt)}
         </div>
       </div>
       
@@ -22,7 +24,7 @@ export const JobCard=({jobs})=> {
       <div className="flex gap-4 mb-3 text-gray-600 text-sm">
         <div className="flex items-center">
           <User size={16} className="mr-1" />
-          <span>1-3 yr Exp</span>
+          <span>{location}</span>
         </div>
         <div className="flex items-center">
           <Building size={16} className="mr-1" />

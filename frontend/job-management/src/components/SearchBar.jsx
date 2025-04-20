@@ -7,34 +7,15 @@ const SearchFilter = () => {
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
   const [jobType, setJobType] = useState("");
-  const [salaryRange, setSalaryRange] = useState({ min: 50000, max: 80000 });
+  const [salaryRange, setSalaryRange] = useState({ minSalary: 50000, maxSalary: 80000 });
   
 
-  const handleSearch = async () => {
-  
-    try {
-      console.log(jobTitle,location,jobType,salaryRange)
-      // const response = await axios.get("/api/jobs/search", {
-      //   params: {
-      //     jobTitle,
-      //     location,
-      //     jobType,
-      //     salaryMin: salaryRange.min,
-      //     salaryMax: salaryRange.max,
-      //   },
-      // });
 
-      console.log("Search results:", response.data);
-    } catch (err) {
-      console.error("Search failed:", err);
-  
-    }
-  };
 
   return (
     <>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 p-4  shadow-sm rounded-md">
-      {/* Job Title */}
+    
       <div className="flex items-center gap-2 border-r-3 border-[#EAEAEA] pr-4 ml-7">
         <FiSearch />
         <input
@@ -97,14 +78,6 @@ const SearchFilter = () => {
      
 
     </div>
-      <div className="col-span-full flex justify-center mt-2">
-        <button
-          onClick={handleSearch}
-          className="bg-[#00AAFF] rounded-full w-[120px] text-white p-2 cursor-pointer "
-        >
-          Search
-        </button>
-      </div>
       </>
   );
 };

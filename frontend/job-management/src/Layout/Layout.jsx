@@ -14,14 +14,14 @@ const Layout = () => {
   const [showModal, setShowModal] = useState(false);
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [createPost,setCreatePost]=useState(false)
 
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const {data} = await apiInstance.get("/api/jobs");
+        const { data } = await apiInstance.get("/api/jobs");
         console.log(data);
-        setJobs(data?.data)
-        // setFilteredJobs(response.data.jobs);
+        setJobs(data?.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching jobs:", error);
@@ -30,19 +30,34 @@ const Layout = () => {
     };
 
     fetchJobs();
-  }, []);
+  }, [createPost]);
+
+  const handlePost=()=>{
+    setCreatePost(!createPost)
+  }
 
   return (
     <div>
       <Navbar onCreateClick={() => setShowModal(true)} />
       <SearchFilter />
       <div className="ml-[64px] gap-[16px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  mb-[30px] ">
-        {jobs.map((jobs,i)=>(
-          <JobCard key={i} jobs={jobs} />
-        ))}
+        {loading ? (
+          <>
+            <Skeleton count={10} />
+            <Skeleton count={10} />
+            <Skeleton count={10} />
+            <Skeleton count={10} />
+            <Skeleton count={10} />
+            <Skeleton count={10} />
+            <Skeleton count={10} />
+            <Skeleton count={10} />
+          </>
+        ) : (
+          jobs.map((job, i) => <JobCard key={i} jobs={job} />)
+        )}
       </div>
       <ModalWrapper isOpen={showModal} onClose={() => setShowModal(false)}>
-        <CreateJobPost closeModal={() => setShowModal(false)} />
+        <CreateJobPost setPost={handlePost} closeModal={() => setShowModal(false)} />
       </ModalWrapper>
     </div>
   );
