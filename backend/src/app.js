@@ -10,7 +10,7 @@ import routes from './routes/routes.js'
 const app = express()
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://jobmanagement.vercel.app',
     methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
     credentials: true,
   };
